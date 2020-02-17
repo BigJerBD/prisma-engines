@@ -48,6 +48,8 @@ case class TestServer() extends PlayJsonExtensions with LogSupport {
       errorCount: Int = 1,
       errorContains: String = "",
       legacy: Boolean = true,
+      // Assertions of the form (jsonPath, expectedValue).
+      errorMetaContains: Array[(String, String)] = Array.empty,
   ): JsValue = {
     val result =
       queryBinaryCLI(
@@ -57,7 +59,7 @@ case class TestServer() extends PlayJsonExtensions with LogSupport {
       )
 
     // Ignore error codes for external tests (0) and containment checks ("")
-    result.assertFailingResponse(errorCode, errorCount, errorContains)
+    result.assertFailingResponse(errorCode, errorCount, errorContains, errorMetaContains)
     result
   }
 
