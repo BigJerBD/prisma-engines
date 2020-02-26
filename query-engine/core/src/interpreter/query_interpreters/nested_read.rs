@@ -171,22 +171,20 @@ pub async fn one2m<'a, 'b>(
         .get_many_records(&parent_field.related_model(), args, selected_fields)
         .await?;
 
-    let child_field_names = scalars.field_names.clone();
-
     // Inlining is done on the parent, this means that we need to write the primary parent ID
     // into the child records that we retrieved. The matching is done based on the parent link values.
     if parent_field.is_inlined_on_enclosing_model() {
         let mut additional_records = vec![];
 
         for mut record in scalars.records.iter_mut() {
-            let child_link: RecordProjection = record.projection(&child_field_names, &child_link_id)?;
-            let child_link_values: Vec<PrismaValue> = child_link.pairs.iter().map(|(_, v)| v.clone()).collect();
+            let child_link: RecordProjection = record.projection(&scalars.field_names, &child_link_id)?;
+            let child_link_values: Vec<PrismaValue> = child_link.pairs.into_iter().map(|(_, v)| v).collect();
 
             if let Some(parent_ids) = link_mapping.get_mut(&child_link_values) {
                 parent_ids.reverse();
 
                 let parent_id = parent_ids.pop().unwrap();
-                record.parent_id = Some(parent_id.clone());
+                record.parent_id = Some(parent_id);
 
                 for parent_id in parent_ids {
                     let mut record = record.clone();
@@ -203,14 +201,12 @@ pub async fn one2m<'a, 'b>(
         let child_link_fields = parent_field.related_field().linking_fields();
 
         for record in scalars.records.iter_mut() {
-            let child_link: RecordProjection = record.projection(&child_field_names, &child_link_fields)?;
-            let child_link_values: Vec<PrismaValue> = child_link.pairs.iter().map(|(_, v)| v.clone()).collect();
+            let child_link: RecordProjection = record.projection(&scalars.field_names, &child_link_fields)?;
+            let child_link_values: Vec<PrismaValue> = child_link.pairs.into_iter().map(|(_, v)| v).collect();
 
             if let Some(parent_ids) = link_mapping.get_mut(&child_link_values) {
-                parent_ids.reverse();
-
-                let parent_id = parent_ids.first().unwrap();
-                record.parent_id = Some(parent_id.clone());
+                let parent_id = parent_ids.pop().unwrap();
+                record.parent_id = Some(parent_id);
             }
         }
     } else {
