@@ -151,3 +151,59 @@ pub async fn mysql_mariadb_test_api(db_name: &str) -> TestApi {
         is_pgbouncer: false,
     }
 }
+
+pub async fn postgres_test_api(db_name: &str) -> TestApi {
+    let postgres_url = test_setup::postgres_10_url(db_name);
+
+    test_setup::create_postgres_database(&postgres_url.parse().unwrap())
+        .await
+        .unwrap();
+
+    TestApi {
+        database_string: postgres_url,
+        provider: "postgres",
+        is_pgbouncer: false,
+    }
+}
+
+pub async fn postgres9_test_api(db_name: &str) -> TestApi {
+    let postgres_url = test_setup::postgres_9_url(db_name);
+
+    test_setup::create_postgres_database(&postgres_url.parse().unwrap())
+        .await
+        .unwrap();
+
+    TestApi {
+        database_string: postgres_url,
+        provider: "postgres",
+        is_pgbouncer: false,
+    }
+}
+
+pub async fn postgres11_test_api(db_name: &str) -> TestApi {
+    let postgres_url = test_setup::postgres_11_url(db_name);
+
+    test_setup::create_postgres_database(&postgres_url.parse().unwrap())
+        .await
+        .unwrap();
+
+    TestApi {
+        database_string: postgres_url,
+        provider: "postgres",
+        is_pgbouncer: false,
+    }
+}
+
+pub async fn postgres12_test_api(db_name: &str) -> TestApi {
+    let postgres_url = test_setup::postgres_12_url(db_name);
+
+    test_setup::create_postgres_database(&postgres_url.parse().unwrap())
+        .await
+        .unwrap();
+
+    TestApi {
+        database_string: postgres_url,
+        provider: "postgres",
+        is_pgbouncer: false,
+    }
+}
