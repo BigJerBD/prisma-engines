@@ -130,7 +130,7 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                     string_text: "to yeet or not to yeet"
                     binary_uuid: "111142ec-880b-4062-913d-8eac479ab957"
                     time_timestamp: "2020-03-02T08:00:00.000"
-                    # time_timestamptz: "2020-03-02T08:00:00.000"
+                    time_timestamptz: "2020-03-02T08:00:00.000"
                     time_date: "2020-03-05T00:00:00.000"
                     # time_time: "2020-03-05T08:00:00.000"
                     # time_interval: "3 hours"
@@ -166,7 +166,7 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                 string_text
                 binary_uuid
                 time_timestamp
-                # time_timestamptz
+                time_timestamptz
                 time_date
                 # time_time
                 # time_interval
@@ -210,8 +210,8 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                 "string_text": "to yeet or not to yeet",
                 "binary_uuid": "111142ec-880b-4062-913d-8eac479ab957",
                 "time_timestamp": "2020-03-02T08:00:00.000Z",
+                "time_timestamptz": "2020-03-02T08:00:00.000Z",
                 "time_date": "2020-03-05T00:00:00.000Z",
-                // "time_timestamptz": "abcd",
                 "boolean_boolean": true,
                 "network_inet": "192.168.100.14",
                 "json_json": "{\"isJson\":true}",
