@@ -140,8 +140,8 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                     # network_mac: "12:33:ed:44:49:36"
                     # search_tsvector: "''a'' ''dump'' ''dumps'' ''fox'' ''in'' ''the''"
                     # search_tsquery: "''foxy cat''"
-                    # json_json: "{ \"isJson\": true }"
-                    # json_jsonb: "{ \"isJSONB\": true }"
+                    json_json: "{ \"isJson\": true }"
+                    json_jsonb: "{ \"isJSONB\": true }"
                     # range_int4range: "[-4, 8)"
                     # range_int8range: "[4000, 9000)"
                     # range_numrange: "[11.1, 22.2)"
@@ -176,8 +176,8 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                 # network_mac
                 # search_tsvector
                 # search_tsquery
-                # json_json
-                # json_jsonb
+                json_json
+                json_jsonb
                 # range_int4range
                 # range_int8range
                 # range_numrange
@@ -213,6 +213,8 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                 // "time_timestamptz": "abcd",
                 "boolean_boolean": true,
                 "network_inet": "192.168.100.14",
+                "json_json": "{\"isJson\":true}",
+                "json_jsonb": "{\"isJSONB\":true}",
             }
         }
     });
