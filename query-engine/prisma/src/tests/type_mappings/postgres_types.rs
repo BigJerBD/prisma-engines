@@ -118,8 +118,8 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                     numeric_int4: 9002
                     numeric_int8: 100000000
                     numeric_decimal: 49.3444
-                    # numeric_float4: 12.12
-                    # numeric_float8: 3.139428
+                    numeric_float4: 12.12
+                    numeric_float8: 3.139428
                     numeric_serial2: 8,
                     numeric_serial4: 80,
                     numeric_serial8: 80000,
@@ -128,7 +128,7 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                     string_char: "yeet"
                     string_varchar: "yeet variable"
                     string_text: "to yeet or not to yeet"
-                    # binary_uuid: "111142ec-880b-4062-913d-8eac479ab957"
+                    binary_uuid: "111142ec-880b-4062-913d-8eac479ab957"
                     time_timestamp: "2020-03-02T08:00:00.000"
                     # time_timestamptz: "2020-03-02T08:00:00.000"
                     # time_date: "2020-03-05T08:00:00.000"
@@ -136,7 +136,7 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                     # time_interval: "3 hours"
                     boolean_boolean: true
                     # network_cidr: "192.168.100.14/24"
-                    # network_inet: "192.168.100.14"
+                    network_inet: "192.168.100.14"
                     # network_mac: "12:33:ed:44:49:36"
                     # search_tsvector: "''a'' ''dump'' ''dumps'' ''fox'' ''in'' ''the''"
                     # search_tsquery: "''foxy cat''"
@@ -164,7 +164,7 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                 string_char
                 string_varchar
                 string_text
-                # binary_uuid
+                binary_uuid
                 time_timestamp
                 # time_timestamptz
                 # time_date
@@ -172,7 +172,7 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                 # time_interval
                 boolean_boolean
                 # network_cidr
-                # network_inet
+                network_inet
                 # network_mac
                 # search_tsvector
                 # search_tsquery
@@ -208,10 +208,11 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                 "string_char": "yeet    ",
                 "string_varchar": "yeet variable",
                 "string_text": "to yeet or not to yeet",
-                // "binary_uuid": "111142ec-880b-4062-913d-8eac479ab957",
+                "binary_uuid": "111142ec-880b-4062-913d-8eac479ab957",
                 "time_timestamp": "2020-03-02T08:00:00.000Z",
                 // "time_timestamptz": "abcd",
                 "boolean_boolean": true,
+                "network_inet": "192.168.100.14",
             }
         }
     });
