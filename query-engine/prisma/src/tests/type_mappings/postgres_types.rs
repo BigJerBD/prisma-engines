@@ -92,6 +92,7 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
             .assert_field_type("time_timestamptz", ScalarType::DateTime)?
             .assert_field_type("time_date", ScalarType::DateTime)?
             .assert_field_type("time_time", ScalarType::DateTime)?
+            .assert_field_type("time_timetz", ScalarType::DateTime)?
             .assert_field_type("time_interval", ScalarType::String)?
             .assert_field_type("boolean_boolean", ScalarType::Boolean)?
             .assert_field_type("network_cidr", ScalarType::String)?
@@ -133,6 +134,7 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                     time_timestamptz: "2020-03-02T08:00:00.000"
                     time_date: "2020-03-05T00:00:00.000"
                     time_time: "2020-03-05T08:00:00.000"
+                    time_timetz: "2020-03-05T08:00:00.000"
                     # time_interval: "3 hours"
                     boolean_boolean: true
                     # network_cidr: "192.168.100.14/24"
@@ -169,6 +171,7 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                 time_timestamptz
                 time_date
                 time_time
+                time_timetz
                 # time_interval
                 boolean_boolean
                 # network_cidr
@@ -213,6 +216,7 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                 "time_timestamptz": "2020-03-02T08:00:00.000Z",
                 "time_date": "2020-03-05T00:00:00.000Z",
                 "time_time": "1970-01-01T08:00:00.000Z",
+                "time_timetz": "1970-01-01T08:00:00.000Z",
                 "boolean_boolean": true,
                 "network_inet": "192.168.100.14",
                 "json_json": "{\"isJson\":true}",
