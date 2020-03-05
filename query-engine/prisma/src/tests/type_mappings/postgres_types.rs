@@ -124,7 +124,7 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                     numeric_serial4: 80,
                     numeric_serial8: 80000,
                     # numeric_money: 3.50
-                    # numeric_oid: 2000
+                    numeric_oid: 2000
                     string_char: "yeet"
                     string_varchar: "yeet variable"
                     string_text: "to yeet or not to yeet"
@@ -132,7 +132,7 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                     time_timestamp: "2020-03-02T08:00:00.000"
                     time_timestamptz: "2020-03-02T08:00:00.000"
                     time_date: "2020-03-05T00:00:00.000"
-                    # time_time: "2020-03-05T08:00:00.000"
+                    time_time: "2020-03-05T08:00:00.000"
                     # time_interval: "3 hours"
                     boolean_boolean: true
                     # network_cidr: "192.168.100.14/24"
@@ -160,7 +160,7 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                 numeric_serial4
                 numeric_serial8
                 # numeric_money
-                # numeric_oid
+                numeric_oid
                 string_char
                 string_varchar
                 string_text
@@ -168,7 +168,7 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                 time_timestamp
                 time_timestamptz
                 time_date
-                # time_time
+                time_time
                 # time_interval
                 boolean_boolean
                 # network_cidr
@@ -204,7 +204,7 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                 "numeric_float4": 12.12,
                 "numeric_float8": 3.139428,
                 // "numeric_money": 3.5,
-                // "numeric_oid": 2000,
+                "numeric_oid": 2000,
                 "string_char": "yeet    ",
                 "string_varchar": "yeet variable",
                 "string_text": "to yeet or not to yeet",
@@ -212,6 +212,7 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                 "time_timestamp": "2020-03-02T08:00:00.000Z",
                 "time_timestamptz": "2020-03-02T08:00:00.000Z",
                 "time_date": "2020-03-05T00:00:00.000Z",
+                "time_time": "1970-01-01T08:00:00.000Z",
                 "boolean_boolean": true,
                 "network_inet": "192.168.100.14",
                 "json_json": "{\"isJson\":true}",
