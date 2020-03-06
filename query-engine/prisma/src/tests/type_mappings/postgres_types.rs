@@ -124,7 +124,7 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                     numeric_serial2: 8,
                     numeric_serial4: 80,
                     numeric_serial8: 80000,
-                    # numeric_money: 3.50
+                    numeric_money: 3.50
                     numeric_oid: 2000
                     string_char: "yeet"
                     string_varchar: "yeet variable"
@@ -161,7 +161,7 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                 numeric_serial2
                 numeric_serial4
                 numeric_serial8
-                # numeric_money
+                numeric_money
                 numeric_oid
                 string_char
                 string_varchar
@@ -206,7 +206,7 @@ async fn postgres_types_roundtrip(api: &TestApi) -> TestResult {
                 "numeric_decimal": 49.3444,
                 "numeric_float4": 12.12,
                 "numeric_float8": 3.139428,
-                // "numeric_money": 3.5,
+                "numeric_money": 3.5,
                 "numeric_oid": 2000,
                 "string_char": "yeet    ",
                 "string_varchar": "yeet variable",
